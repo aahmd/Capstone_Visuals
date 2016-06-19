@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <TITLE>d3.js Tutorial</TITLE>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+
+<body>
+
+    <p>This is a paragraph</p> <!--Here we're creating a new paragraph in the html body-->
+
+    <script>
+
+        <!-- Here well append using d3 our paragraph-->
+        <!--d3.select("p").text("hello world");-->
+        <!--The line below allows us to insert a new paragraph into the body-->
+        <!--d3.select("body").append("p").text("Hey, whats up??");-->
+        <!--taking a look at the console inside of safari where we can reivew functions etc-->
+        <!--console.log(d3);-->
+
+        var canvas = d3.select("body")
+                    .append("svg")
+                    .attr("width", 500)
+                    .attr("height", 500);
+
+        var circle = canvas.append("circle")
+                    .attr("cx", 250)
+                    .attr("cy", 250)
+                    .attr("r", 50)
+                    .attr("fill", "red");
+
+        var rect = canvas.append("rect")
+                  .attr("width", 100)
+                  .attr("height", 50);
+
+        var linie = canvas.append("line")
+                  .attr("x1", 0)
+                  .attr("y1", 100)
+                  .attr("x2", 400)
+                  .attr("y2", 400)
+                  .attr("stroke", "green")
+                  .attr("stroke-width", 10);
+
+    </script>
+
+</body>
+
+
+</html>
