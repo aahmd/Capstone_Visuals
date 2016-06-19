@@ -1,0 +1,46 @@
+<!--Source: https://www.youtube.com/watch?v=4haBbPEClP4 -->
+<!--Author: d3Vienno-->
+<!--License:  Creative Commons Attribution license (reuse allowed)-->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <TITLE>d3.js Tutorial (part2)</TITLE>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <script>
+      <!--creating a data array of 13, 37, 57 for purpose of making a simple bar chart-->
+      var dataArray = [17, 37, 57];
+
+      var canvas = d3.select("body")
+                  .append("svg")
+                  .attr("width", 500)
+                  .attr("height", 500);
+
+      <!--Returning an empty array, that we can bind the data to-->
+      var bars = canvas.selectAll("rect")
+      <!--Binding the data to the empty array-->
+                  .data(dataArray)
+      <!--in this case we are making an empty array, but i we only had say 2 rectangles-->
+      <!--and we had 3 datapoints, enter will create a new rectangle for the thrid data point-->
+                  .enter()
+                    .append("rect")
+      <!--setting the width of each of the 3 rectangles, to be equal to a cooresponding datapoint(times 10(for purpose of viewing on html))-->
+                    .attr("width", function(d) { return d * 10; })
+                    .attr("height", 50)
+      <!--setting the distance between each rectangle to 100 pixels (which will make the actual gap between
+      <!--each rectangle 50, since we set a height of each rectangle to 50 in the line before)  This is done
+      <!--since by default, the boxes wold 'stack' on top of one another in the upper left corner-->
+                    .attr("y", function(d, i) { return i * 100 });
+
+
+    </script>
+
+</body>
+
+</html>
