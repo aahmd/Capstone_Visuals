@@ -1,0 +1,50 @@
+<!--Source: https://www.youtube.com/watch?v=4haBbPEClP4 -->
+<!--Author: d3Vienno-->
+<!--License:  Creative Commons Attribution license (reuse allowed)-->
+
+<!doctype html>
+<html>
+
+<head>
+    <title>D3 tutoiral part 6(intro to transitions)</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <script>
+
+    var canvas = d3.select("body")
+                  .append("svg")
+                  .attr("width", 500)
+                  .attr("height", 500)
+
+    var circle = canvas.append("circle")
+                  .attr("cx", 77)
+                  .attr("cy", 77)
+                  .attr("r", 35);
+
+    <!--1:  in the following example were using transition to move the circle around the html page-->
+    <!--(2500) = milliseconds-->
+    circle.transition()
+    <!--delay = length of delay until transition starts after loading html page-->
+          .delay(2500)
+    <!--duration= length of the transtion will last (how long it takes to move the circle)-->
+          .duration(1500)
+    <!--lets say we want to shift the circle to the right of the html page-->
+          .attr("cx", 150)
+    <!--now lets have the cricle move down 200 pixels-->
+          .transition()
+          .attr("cy", 200)
+    <!--now well set the x axis back from 150 to 50, moving the circle back to the left 100 pixels-->
+          .transition()
+          .attr("cx", 50)
+    <!-- now we can use .each("end", function....) to have a function run AFTER the transition has ran-->
+    <!--in this case were filling the circle to the color red-->
+          .each("end", function () { d3.select(this).attr("fill", "red"); });
+
+    </script>
+
+</body>
+
+</html>
